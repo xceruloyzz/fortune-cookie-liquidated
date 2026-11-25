@@ -9,9 +9,15 @@ no randomness.
 
 import os
 
+# Fortune format: one line of plain text (no emoji, no markdown), written
+# to /output/entry.txt as exact bytes with no trailing newline.
+# Gates (checked in main() before writing):
+#   * 1–160 characters — the gate refuses entry.txt over 160 characters.
+#   * at most 20 words — the bounty caps the fortune at 20 words.
+# Keep it short on purpose: an exact tie on Judge win rate goes to the
+# smaller text, then to the earlier receipt.
 FORTUNE = "You will meet a tall, dark stranger: it is your stop-loss, and it waited for you all along."
-# 18 words, 91 characters. Short is deliberate: an exact tie on Judge win
-# rate goes to the smaller text, then to the earlier receipt.
+# 18 words, 91 characters.
 
 MAX_CHARS = 160  # the gate refuses /output/entry.txt over 160 characters
 MAX_WORDS = 20  # the bounty caps the fortune at 20 words
